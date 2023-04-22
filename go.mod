@@ -3,7 +3,7 @@ module github.com/codebdy/leda-service-sdk
 go 1.18
 
 require (
-	github.com/codebdy/entify v0.0.1
+	github.com/codebdy/entify v0.0.2
 	github.com/spf13/viper v1.15.0
 )
 
