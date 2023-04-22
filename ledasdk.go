@@ -1,6 +1,7 @@
 package ledasdk
 
 import (
+	"github.com/codebdy/entify"
 	"github.com/codebdy/entify/db"
 	"github.com/codebdy/entify/shared"
 	"github.com/codebdy/leda-service-sdk/system"
@@ -11,6 +12,8 @@ func GetAppMata(appName string, dbConfig db.DbConfig) (*system.Meta, error) {
 }
 
 func GetServiceMata(serviceName string, dbConfig db.DbConfig) (*system.Meta, error) {
+	repo := entify.New(dbConfig)
+	repo.Init(*system.SystemMeta, 0)
 	return nil, nil
 }
 
