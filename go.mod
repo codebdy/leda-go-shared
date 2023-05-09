@@ -3,7 +3,7 @@ module github.com/codebdy/leda-service-sdk
 go 1.18
 
 require (
-	github.com/codebdy/entify v0.0.3
+	github.com/codebdy/entify v0.0.7
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/spf13/viper v1.15.0
 )
@@ -27,3 +27,5 @@ require (
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/codebdy/entify v0.0.7 => ../entify

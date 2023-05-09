@@ -1,9 +1,14 @@
 package ledasdk
 
 import (
+	"encoding/json"
+	"io/ioutil"
+	"log"
+
 	"github.com/codebdy/entify"
 	"github.com/codebdy/entify/db"
 	"github.com/codebdy/entify/model/graph"
+	"github.com/codebdy/entify/model/meta"
 	"github.com/codebdy/entify/shared"
 	"github.com/codebdy/leda-service-sdk/consts"
 	"github.com/codebdy/leda-service-sdk/system"
@@ -66,4 +71,16 @@ func GetAppMataById(appId shared.ID, dbConfig db.DbConfig) (*system.Meta, error)
 
 func GetServiceMataById(serviceId shared.ID, dbConfig db.DbConfig) (*system.Meta, error) {
 	return nil, nil
+}
+
+func ReadContentFromJson(fileName string) meta.UMLMeta {
+	data, err := ioutil.ReadFile(fileName)
+	content := meta.UMLMeta{}
+	if nil != err {
+		log.Panic(err.Error())
+	} else {
+		err = json.Unmarshal(data, &content)
+	}
+
+	return content
 }
