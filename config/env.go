@@ -24,6 +24,7 @@ func newEnvConfig() *EnvConfig {
 	e.v.BindEnv(DB_HOST)
 	e.v.BindEnv(DB_PORT)
 	e.v.BindEnv(DB_DATABASE)
+	e.v.BindEnv(MIGRATION)
 	return &e
 }
 

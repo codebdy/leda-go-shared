@@ -15,6 +15,32 @@ import (
 	"github.com/mitchellh/mapstructure"
 )
 
+type App struct {
+	Id    string `json:"id"`
+	Name  string `json:"name"`
+	Title string `json:"title"`
+}
+
+type Meta struct {
+	Content meta.UMLMeta `json:"content"`
+}
+
+type AppJson struct {
+	App  App  `json:"app"`
+	Meta Meta `json:"meta"`
+}
+
+type Service struct {
+	Id    string `json:"id"`
+	Name  string `json:"name"`
+	Title string `json:"title"`
+}
+
+type ServiceJson struct {
+	Service Service `json:"service"`
+	Meta    Meta    `json:"meta"`
+}
+
 func GetAppMata(appName string, dbConfig db.DbConfig) (*system.Meta, error) {
 	return nil, nil
 }
@@ -83,4 +109,28 @@ func ReadContentFromJson(fileName string) meta.UMLMeta {
 	}
 
 	return content
+}
+
+func ReadAppFromJson(fileName string) ServiceJson {
+	data, err := ioutil.ReadFile(fileName)
+	service := ServiceJson{}
+	if nil != err {
+		log.Panic(err.Error())
+	} else {
+		err = json.Unmarshal(data, &service)
+	}
+
+	return service
+}
+
+func ReadServieFromJson(fileName string) AppJson {
+	data, err := ioutil.ReadFile(fileName)
+	app := AppJson{}
+	if nil != err {
+		log.Panic(err.Error())
+	} else {
+		err = json.Unmarshal(data, &app)
+	}
+
+	return app
 }
