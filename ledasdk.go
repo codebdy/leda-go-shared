@@ -111,7 +111,7 @@ func ReadContentFromJson(fileName string) meta.UMLMeta {
 	return content
 }
 
-func ReadServieFromJson(fileName string) ServiceJson {
+func ReadServiceFromJson(fileName string) ServiceJson {
 	data, err := ioutil.ReadFile(fileName)
 	service := ServiceJson{}
 	if nil != err {
