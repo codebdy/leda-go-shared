@@ -25,7 +25,7 @@ type Meta struct {
 	Content meta.UMLMeta `json:"content"`
 }
 
-type AppJson struct {
+type AppSeed struct {
 	App  App  `json:"app"`
 	Meta Meta `json:"meta"`
 }
@@ -36,7 +36,7 @@ type Service struct {
 	Title string `json:"title"`
 }
 
-type ServiceJson struct {
+type ServiceSeed struct {
 	Service Service `json:"service"`
 	Meta    Meta    `json:"meta"`
 }
@@ -111,26 +111,42 @@ func ReadContentFromJson(fileName string) meta.UMLMeta {
 	return content
 }
 
-func ReadServiceFromJson(fileName string) ServiceJson {
+func ReadServiceFromJson(fileName string) (ServiceSeed, map[string]interface{}) {
 	data, err := ioutil.ReadFile(fileName)
-	service := ServiceJson{}
+	service := ServiceSeed{}
+	serviceMap := map[string]interface{}{}
 	if nil != err {
 		log.Panic(err.Error())
 	} else {
 		err = json.Unmarshal(data, &service)
+		if err != nil {
+			panic(err.Error())
+		}
+		err = json.Unmarshal(data, &serviceMap)
+		if err != nil {
+			panic(err.Error())
+		}
 	}
 
-	return service
+	return service, serviceMap
 }
 
-func ReadAppFromJson(fileName string) AppJson {
+func ReadAppFromJson(fileName string) (AppSeed, map[string]interface{}) {
 	data, err := ioutil.ReadFile(fileName)
-	app := AppJson{}
+	app := AppSeed{}
+	appMap := map[string]interface{}{}
 	if nil != err {
 		log.Panic(err.Error())
 	} else {
 		err = json.Unmarshal(data, &app)
+		if err != nil {
+			panic(err.Error())
+		}
+		err = json.Unmarshal(data, &appMap)
+		if err != nil {
+			panic(err.Error())
+		}
 	}
 
-	return app
+	return app, appMap
 }
