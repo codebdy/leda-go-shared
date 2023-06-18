@@ -16,12 +16,13 @@ import (
 )
 
 type App struct {
-	Id    string `json:"id"`
+	Id    uint64 `json:"id"`
 	Name  string `json:"name"`
 	Title string `json:"title"`
 }
 
 type Meta struct {
+	Id      uint64       `json:"id"`
 	Content meta.UMLMeta `json:"content"`
 }
 
@@ -31,7 +32,7 @@ type AppSeed struct {
 }
 
 type Service struct {
-	Id    string `json:"id"`
+	Id    uint64 `json:"id"`
 	Name  string `json:"name"`
 	Title string `json:"title"`
 }
