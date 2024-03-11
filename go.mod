@@ -3,12 +3,13 @@ module github.com/codebdy/leda-service-sdk
 go 1.18
 
 require (
-	github.com/codebdy/entify v0.0.8
+	github.com/codebdy/entify-core v0.1.0
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/spf13/viper v1.15.0
 )
 
 require (
+	github.com/codebdy/minions-go v0.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/gertd/go-pluralize v0.2.1 // indirect
 	github.com/go-sql-driver/mysql v1.7.0 // indirect

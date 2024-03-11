@@ -1,7 +1,7 @@
 package config
 
 import (
-	"github.com/codebdy/entify/db"
+	"github.com/codebdy/entify-core/db"
 )
 
 const TABLE_NAME_MAX_LENGTH = 64

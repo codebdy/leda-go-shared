@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"log"
 
-	"github.com/codebdy/entify/model/meta"
+	"github.com/codebdy/entify-core/model/meta"
 )
 
 var SystemMeta *meta.UMLMeta

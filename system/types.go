@@ -3,8 +3,8 @@ package system
 import (
 	"time"
 
-	"github.com/codebdy/entify/model/meta"
-	"github.com/codebdy/entify/shared"
+	"github.com/codebdy/entify-core/model/meta"
+	"github.com/codebdy/entify-core/shared"
 )
 
 type Meta struct {
